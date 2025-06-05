@@ -1,13 +1,54 @@
 "use client";
 
-import { useEffect } from "react";
-import ProjectCard from "@/components/ProjectCard";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import centralNorte from "@/public/centralNorte.gif";
+import challenger from "@/public/challenger360.gif";
+import copa from "@/public/copa.gif";
+import delpo from "@/public/delpo.gif";
+import jetsmart from "@/public/jetsmart.gif";
+import ocasa from "@/public/ocasa.gif";
 
-export default function SectionProjects() {
-	useScrollAnimations();
-
+function Proyectos() {
+	// @ts-ignore
+	function ProjectCard({ image, title, category, description, delay }) {
+		return (
+			<motion.div
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
+				transition={{ duration: 0.5, delay }}
+				className="animate-on-scroll opacity-0 transition-all duration-1000 translate-y-10"
+			>
+				<Card className="bg-white border-slate-200 overflow-hidden hover:shadow-lg transition-all duration-300 h-full">
+					<div className="relative h-48 overflow-hidden">
+						<Image
+							src={image}
+							alt={title}
+							fill
+							className="object-cover transition-transform duration-500 group-hover:scale-110"
+						/>
+					</div>
+					<CardContent className="p-6">
+						<span className="inline-block px-3 py-1 text-xs font-semibold bg-[#224390]/10 text-[#224390] rounded-full mb-2">
+							{category}
+						</span>
+						<h3 className="text-xl font-bold text-[#224390] mb-2">{title}</h3>
+						<p className="text-slate-600 mb-4">{description}</p>
+						<Button
+							variant="outline"
+							className="border-[#224390] text-[#224390] hover:bg-[#224390]/10"
+						>
+							Ver Detalles
+						</Button>
+					</CardContent>
+				</Card>
+			</motion.div>
+		);
+	}
 	return (
 		<section id="projects" className="py-20 bg-white">
 			<div className="container mx-auto px-4">
@@ -22,54 +63,52 @@ export default function SectionProjects() {
 				</div>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					{[
-						"Jetsmart",
-						"Copa Argentina",
-						"Del potro",
-						"Cormillot",
-						"Central Norte",
-					].map((title, i) => (
-						<ProjectCard
-							key={title}
-							image="/placeholder.svg?height=300&width=500"
-							title={title}
-							category="Category"
-							description="Sistema integral para la gestión de recursos empresariales, clientes y proyectos."
-							delay={0.1 + i * 0.1}
-						/>
-					))}
-				</div>
-
-				<div className="text-center mt-12">
-					<Button className="bg-[#224390] hover:bg-[#2d3a5a] text-white">
-						Ver Todos los Proyectos
-						<ChevronRight className="ml-2 h-4 w-4" />
-					</Button>
+					<ProjectCard
+						image={jetsmart}
+						title="Jetsmart"
+						category="Category"
+						description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit culpa quidem commodi recusandae, "
+						delay={0.1}
+					/>
+					<ProjectCard
+						image={copa}
+						title="Copa Argentina"
+						category="Category"
+						description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit culpa quidem commodi recusandae, "
+						delay={0.2}
+					/>
+					<ProjectCard
+						image={delpo}
+						title="Del potro"
+						category="Category"
+						description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit culpa quidem commodi recusandae, "
+						delay={0.3}
+					/>
+					<ProjectCard
+						image={ocasa}
+						title="Ocasa"
+						category="Category"
+						description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit culpa quidem commodi recusandae, "
+						delay={0.3}
+					/>
+					<ProjectCard
+						image={centralNorte}
+						title="Central Norte"
+						category="Category"
+						description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit culpa quidem commodi recusandae, "
+						delay={0.3}
+					/>
+					<ProjectCard
+						image={challenger}
+						title="Challenger 360"
+						category="Category"
+						description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit culpa quidem commodi recusandae, "
+						delay={0.3}
+					/>
 				</div>
 			</div>
 		</section>
 	);
 }
 
-function useScrollAnimations() {
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add("show");
-					}
-				});
-			},
-			{ threshold: 0.1 }
-		);
-		document
-			.querySelectorAll(".animate-on-scroll")
-			.forEach((el) => observer.observe(el));
-		return () => {
-			document
-				.querySelectorAll(".animate-on-scroll")
-				.forEach((el) => observer.unobserve(el));
-		};
-	}, []);
-}
+export default Proyectos;

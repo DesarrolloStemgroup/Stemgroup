@@ -23,13 +23,14 @@ export default function NavBar() {
 
 				<nav className="hidden md:flex items-center gap-8">
 					<NavLink href="#about">Nosotros</NavLink>
-					<NavLink href="#highlights">Destacados</NavLink>
-					<NavLink href="#projects">Proyectos</NavLink>
-					<NavLink href="#clients">Clientes</NavLink>
+					<NavLink href="#highlights">Nuestro Proceso</NavLink>
+					<NavLink href="#projects">Clientes</NavLink>
 					<NavLink href="#gallery">Galería</NavLink>
-					<Button className="bg-[#224390] hover:bg-[#2d3a5a] text-white">
-						Contáctanos
-					</Button>
+					<Link href={"#contact"}>
+						<Button className="bg-[#224390] hover:bg-[#2d3a5a] text-white">
+							Contáctanos
+						</Button>
+					</Link>
 				</nav>
 
 				<button

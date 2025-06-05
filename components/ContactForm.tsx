@@ -18,44 +18,34 @@ export default function ContactForm() {
 					<div className="absolute top-0 right-0 w-64 h-64 bg-[#224390]/10 rounded-full filter blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 					<div className="absolute bottom-0 left-0 w-64 h-64 bg-[#224390]/10 rounded-full filter blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
-					<div className="relative z-10">
-						<div className="text-center mb-10">
+					<div className="relative z-10 flex flex-col items-center text-center">
+						<div className="mb-10">
 							<h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#224390]">
 								¿Listo para Transformar tu Idea en Realidad?
 							</h2>
 							<p className="text-xl text-slate-600">
 								Contáctanos hoy mismo y comencemos a trabajar en tu próximo
-								proyecto
+								proyecto.
 							</p>
 						</div>
 
-						<div>
-							<h3 className="text-xl font-semibold mb-4 flex items-center text-[#224390]">
-								<MessageSquare className="mr-2" />
-								Hablemos
-							</h3>
-							<p className="text-slate-600 mb-6">
-								Estamos aquí para responder tus preguntas y discutir cómo
-								podemos ayudarte.
-							</p>
-							<div className="space-y-4">
-								<div className="flex items-center">
-									<div className="w-10 h-10 rounded-full bg-[#224390]/10 flex items-center justify-center mr-3">
-										<MessageSquare className="h-5 w-5 text-[#224390]" />
-									</div>
-									<div>
-										<p className="text-sm text-slate-500">Email</p>
-										<p className="text-slate-800">contacto@stemgroup.com</p>
-									</div>
+						<div className="flex flex-col gap-4 md:flex-row md:justify-center md:items-center">
+							<div className="flex items-center">
+								<div className="w-10 h-10 rounded-full bg-[#224390]/10 flex items-center justify-center mr-3">
+									<MessageSquare className="h-5 w-5 text-[#224390]" />
 								</div>
-								<div className="flex items-center">
-									<div className="w-10 h-10 rounded-full bg-[#224390]/10 flex items-center justify-center mr-3">
-										<Phone className="h-5 w-5 text-[#224390]" />
-									</div>
-									<div>
-										<p className="text-sm text-slate-500">Teléfono</p>
-										<p className="text-slate-800">+1 (555) 123-4567</p>
-									</div>
+								<div className="text-left">
+									<p className="text-sm text-slate-500">Email</p>
+									<p className="text-slate-800">contacto@stemgroup.com</p>
+								</div>
+							</div>
+							<div className="flex items-center md:ml-8">
+								<div className="w-10 h-10 rounded-full bg-[#224390]/10 flex items-center justify-center mr-3">
+									<Phone className="h-5 w-5 text-[#224390]" />
+								</div>
+								<div className="text-left">
+									<p className="text-sm text-slate-500">Teléfono</p>
+									<p className="text-slate-800">+1 (555) 123-4567</p>
 								</div>
 							</div>
 						</div>
