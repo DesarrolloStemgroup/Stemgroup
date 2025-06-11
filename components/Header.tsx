@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logo from "@/public/Logo-stem-group.png";
 
 export default function NavBar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,25 +14,24 @@ export default function NavBar() {
 		<header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
 			<div className="container mx-auto px-4 py-4 flex justify-between items-center">
 				<Link href="/" className="flex items-center gap-2">
-					<div className="relative w-8 h-8">
-						<div className="absolute inset-0 bg-[#224390] rounded-md transform-gpu"></div>
+					<div className="relative w-32 h-20">
+						<div className="absolute inset-0 rounded-md transform-gpu"></div>
 						<div className="absolute inset-0 flex items-center justify-center">
-							<span className="font-bold text-lg text-white">S</span>
+							<Image
+								src={logo}
+								alt="Logo"
+								className="w-full h-full object-contain"
+							/>
 						</div>
 					</div>
-					<span className="font-bold text-xl text-[#224390]">Stem Group</span>
 				</Link>
 
 				<nav className="hidden md:flex items-center gap-8">
 					<NavLink href="#about">Nosotros</NavLink>
-					<NavLink href="#highlights">Nuestro Proceso</NavLink>
 					<NavLink href="#projects">Clientes</NavLink>
-					<NavLink href="#gallery">Galería</NavLink>
-					<Link href={"#contact"}>
-						<Button className="bg-[#224390] hover:bg-[#2d3a5a] text-white">
-							Contáctanos
-						</Button>
-					</Link>
+					<NavLink href="#highlights">Nuestro Proceso</NavLink>
+
+					<NavLink href="#segmentos">Segmentos</NavLink>
 				</nav>
 
 				<button
@@ -65,9 +66,6 @@ export default function NavBar() {
 						<MobileNavLink href="#gallery" onClick={() => setIsMenuOpen(false)}>
 							Galería
 						</MobileNavLink>
-						<Button className="bg-[#224390] hover:bg-[#2d3a5a] text-white w-full">
-							Contáctanos
-						</Button>
 					</div>
 				</div>
 			)}

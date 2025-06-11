@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SectionHighlights from "@/components/SectionHighlights";
 import SectionProjects from "@/components/SectionProjects";
-import SectionGallery from "@/components/SectionGallery";
+import SectionSegmentsGallery from "@/components/SectionSegmentsGallery";
 
 export default function Home() {
 	return (
@@ -14,7 +14,7 @@ export default function Home() {
 			<Hero />
 			<SectionProjects />
 			<SectionHighlights />
-			<SectionGallery />
+			<SectionSegmentsGallery />
 			<ContactForm />
 			<Footer />
 			<WhatsAppButton />

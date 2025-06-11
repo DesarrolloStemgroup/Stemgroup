@@ -1,13 +1,14 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import background from "@/public/jetsmart.gif";
 
 export default function Hero() {
-	const heroRef = useRef(null);
+	const heroRef = useRef<HTMLElement>(null);
 	const { scrollYProgress } = useScroll({
 		target: heroRef,
 		offset: ["start start", "end start"],
@@ -20,14 +21,19 @@ export default function Hero() {
 		<section
 			ref={heroRef}
 			id="about"
-			className="relative h-[90vh] flex items-center justify-center overflow-hidden pt-16"
-			style={{
-				backgroundImage: `url(${background.src})`,
-				backgroundSize: "100% auto",
-				backgroundRepeat: "no-repeat",
-				backgroundPosition: "center center",
-			}}
+			className="relative h-screen flex items-center justify-center overflow-hidden pt-16"
 		>
+			<div className="absolute inset-0">
+				<div
+					className="w-full h-full bg-cover bg-center"
+					style={{
+						backgroundImage: `url(${background.src})`,
+						opacity: 0.7,
+					}}
+				/>
+
+				<div className="absolute inset-0 bg-gradient-to-b from-[#163866]/50 to-[#163866]/0" />
+			</div>
 			<motion.div
 				style={{ y, opacity }}
 				className="absolute inset-0 z-0 pointer-events-none"
@@ -38,7 +44,6 @@ export default function Hero() {
 				<div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#224390]/5 rounded-full filter blur-3xl" />
 				<div className="absolute bottom-1/3 right-1/3 w-96 h-96 bg-[#224390]/5 rounded-full filter blur-3xl" />
 			</motion.div>
-
 			<div className="container mx-auto px-4 z-10 text-center lg:text-left">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					<motion.div
@@ -47,24 +52,21 @@ export default function Hero() {
 						transition={{ duration: 0.8 }}
 						className="text-center lg:text-left"
 					>
-						<h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
+						<h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-white">
 							Transformamos Ideas en Soluciones Digitales
 						</h1>
-						<p className="text-xl md:text-2xl text-slate-100 mb-8">
+						<p className="text-xl md:text-2xl text-slate-100 mb-8 font-bold">
 							En Stem Group creamos software a medida que impulsa el crecimiento
 							de tu negocio
 						</p>
 						<div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-							<Button className="bg-[#224390] hover:bg-[#2d3a5a] text-white text-lg px-8 py-6 h-auto">
-								Iniciar Proyecto
-								<ChevronRight className="ml-2" />
-							</Button>
-							<Button
-								variant="outline"
-								className="border-[#224390] text-[#224390] hover:bg-[#224390]/10 text-lg px-8 py-6 h-auto"
-							>
-								Conocer Más
-							</Button>
+							<Link href={"#contact"}>
+								{" "}
+								<Button className="bg-[#224390] hover:bg-[#2d3a5a] text-white text-lg px-8 py-6 h-auto">
+									Iniciar Proyecto
+									<ChevronRight className="ml-2" />
+								</Button>
+							</Link>
 						</div>
 					</motion.div>
 				</div>
