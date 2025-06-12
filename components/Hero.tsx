@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import background from "@/public/jetsmart.gif";
+import background from "@/public/hero.gif";
 
 export default function Hero() {
 	const heroRef = useRef<HTMLElement>(null);
@@ -31,8 +31,6 @@ export default function Hero() {
 						opacity: 0.7,
 					}}
 				/>
-
-				<div className="absolute inset-0 bg-gradient-to-b from-[#163866]/50 to-[#163866]/0" />
 			</div>
 			<motion.div
 				style={{ y, opacity }}
